@@ -1,0 +1,1 @@
+# absinthe-schema-stitching-example
