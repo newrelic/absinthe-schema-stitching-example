@@ -1,0 +1,55 @@
+  input MultiEventSearch {
+    events: [EventSearch!]!
+  }
+
+  input EventSearch {
+    hostLocation: String
+    year: Int
+    name: String
+  }
+
+  interface Event {
+    name: String!
+    year: Int!
+    hostLocation: Continent
+    results(testArgument: String): EventResult
+  }
+
+  type WorldCup implements Event {
+    roundOfSixteen: [String]
+    name: String!
+    year: Int!
+    hostLocation: Continent
+    results(testArgument: String): EventResult
+  }
+
+  type Olympics implements Event {
+    ageRequirement: Int
+    name: String!
+    year: Int!
+    hostLocation: Continent
+    results(testArgument: String): EventResult
+  }
+
+  type GenericEvent implements Event {
+    name: String!
+    year: Int!
+    hostLocation: Continent
+    results(testArgument: String): EventResult
+  }
+
+  type EventResult {
+    firstPlace: String!
+    secondPlace: String!
+    thirdPlace: String!
+  }
+
+  enum Continent {
+    NORTH_AMERICA
+    SOUTH_AMERICA
+    EUROPE
+    AFRICA
+    ASIA
+    OCEANIA
+    ANTARCTICA
+  }
