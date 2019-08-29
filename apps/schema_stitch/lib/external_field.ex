@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule SchemaStitch.ExternalField do
   @moduledoc """
   ExternalField will do things like intelligently convert ENUM_STRINGS to absinthe :enum_atoms, and

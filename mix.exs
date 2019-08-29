@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule SchemaStitching.MixProject do
   use Mix.Project
 

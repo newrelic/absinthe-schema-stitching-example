@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule SoccerTeamApp.Resolvers do
   @player13 %{name: "Alex Morgan", number: 13, position: :forward}
   @player15 %{name: "Megan Rapinoe", number: 15, position: :midfielder}

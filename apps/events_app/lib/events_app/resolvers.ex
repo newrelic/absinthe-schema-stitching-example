@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule EventsApp.Resolvers do
   @event_2019 %{
     name: "FIFA World Cup",

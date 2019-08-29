@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config

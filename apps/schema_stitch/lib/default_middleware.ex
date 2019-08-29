@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule SchemaStitch.DefaultMiddleware do
   @moduledoc """
   This is a modified version of the default MapGet middleware

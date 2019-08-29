@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule SchemaStitch.QueryGeneratorTest do
   use ExUnit.Case
   require Logger

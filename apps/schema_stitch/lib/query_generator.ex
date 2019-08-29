@@ -1,3 +1,6 @@
+# Copyright (c) New Relic Corporation. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule SchemaStitch.QueryGenerator do
   @moduledoc """
   Takes an Absinthe resolution struct and generates the relevant GraphQL query and variables.
