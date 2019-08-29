@@ -46,12 +46,7 @@ defmodule SoccerTeamApp.Schema do
   """)
 
   def middleware(middleware, field, object) do
-    Absinthe.Schema.replace_default(
-      middleware,
-      {SchemaStitch.Middleware.Default, field.identifier},
-      field,
-      object
-    )
+    SchemaStitch.middleware(middleware, field, object)
   end
 
   # Standard resolver hydration:
