@@ -10,7 +10,7 @@ This repository contains three example Absinthe-GraphQL applications. The primar
 ## Code Example
 
 The main Soccer Team schema originally contains two fields: 
-```
+```graphql
   player(number: Int!): Player
   players: [Player]
 ```
