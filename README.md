@@ -5,17 +5,19 @@
 **This is an unsupported example. This project is provided AS-IS WITHOUT
 WARRANTY OR SUPPORT.**
 
-This repository contains three example Absinthe-GraphQL applications. The primary Soccer Team application and the secondary Events application are both independent GraphQL APIs. The Schema Stitch application demonstrates the process of stitching the Events application GraphQL schema into the main Soccer Team application GraphQL schema. Through this automated schema-stitching process, schemas from any downstream GraphQL application can be seamlessly integrated into upstream schemas with little manual interaction.
+This repository contains three example Absinthe-GraphQL applications. The primary `Soccer Team` application and the secondary `Events` application are both independent GraphQL APIs. The Schema Stitch application demonstrates the process of stitching the Events application GraphQL schema into the main Soccer Team application GraphQL schema. Through this automated schema-stitching process, schemas from any downstream GraphQL application can be seamlessly integrated into upstream schemas with little manual interaction.
 
 ## Code Example
 
-The main Soccer Team schema originally contains two fields: 
+The main `Soccer Team` schema contains two fields:
+
 ```graphql
   player(number: Int!): Player
   players: [Player]
 ```
 
-After the Events application schema is stitched in, the Soccer Team schema contains six additional fields:
+The `Events` schema contains six additional fields:
+
 ```graphql
   events: [Event]
   eventByYear(year: Int!): Event
@@ -25,7 +27,7 @@ After the Events application schema is stitched in, the Soccer Team schema conta
   nextEventLocation: Continent
 ```
 
-The resulting Soccer Team schema with stitched in Events fields will contain all eight fields: 
+After Schema Stitching, the final `Soccer Team` schema will contain all eight fields: 
 
 ```graphql
   player(number: Int!): Player
