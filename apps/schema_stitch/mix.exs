@@ -24,7 +24,7 @@ defmodule SchemaStitch.MixProject do
 
   defp deps do
     [
-      {:absinthe, github: "binaryseed/absinthe", branch: "hydrate-meta", override: true},
+      {:absinthe, github: "absinthe-graphql/absinthe", branch: "master", override: true},
       {:absinthe_plug, "~> 1.5.0-alpha.0"},
       {:jason, "~> 1.1.0"},
       {:httpoison, "~> 1.0"}

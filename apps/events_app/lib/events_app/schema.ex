@@ -25,17 +25,6 @@ defmodule EventsApp.Schema do
     {:resolve_type, &__MODULE__.resolve_type/2}
   end
 
-  def resolve_type(%{round_of_sixteen: _}, _) do
-    :world_cup
-  end
-
-  def resolve_type(%{age_requirement: _}, _) do
-    :olympics
-  end
-
-  def resolve_type(_, _) do
-    :generic_event
-  end
 
   def hydrate(%{identifier: :events}, [%{identifier: :query} | _]) do
     {:resolve, &EventsApp.Resolvers.get_events/3}
@@ -67,5 +56,17 @@ defmodule EventsApp.Schema do
 
   def hydrate(_node, _ancestors) do
     []
+  end
+
+  def resolve_type(%{round_of_sixteen: _}, _) do
+    :world_cup
+  end
+
+  def resolve_type(%{age_requirement: _}, _) do
+    :olympics
+  end
+
+  def resolve_type(_, _) do
+    :generic_event
   end
 end
