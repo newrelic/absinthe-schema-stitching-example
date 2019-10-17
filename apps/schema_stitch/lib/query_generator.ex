@@ -21,22 +21,18 @@ defmodule SchemaStitch.QueryGenerator do
   end
 
   defp gather_fragments(tree, fragments) do
-    used_fragments = gather_tree_fragments(tree) ++ gather_nested_fragments(fragments)
+    used_fragments = gather_tree_fragments(tree, fragments)
 
     Enum.filter(fragments, fn {name, _fragment} -> name in used_fragments end)
     |> Enum.into(%{})
   end
 
-  defp gather_tree_fragments(%{selections: selections}) do
-    Enum.flat_map(selections, &gather_tree_fragments(&1))
+  defp gather_tree_fragments(%{selections: selections}, fragments) do
+    Enum.flat_map(selections, &gather_tree_fragments(&1, fragments))
   end
 
-  defp gather_tree_fragments(%Blueprint.Document.Fragment.Spread{name: name}) do
-    [name]
-  end
-
-  defp gather_nested_fragments(fragments) do
-    Enum.flat_map(fragments, fn {_name, fragment} -> gather_tree_fragments(fragment) end)
+  defp gather_tree_fragments(%Blueprint.Document.Fragment.Spread{name: name}, fragments) do
+    [name | gather_tree_fragments(fragments[name], fragments)]
   end
 
   def gather_variables(tree, fragments) do
