@@ -1,9 +1,8 @@
+[![Example Code header](https://github.com/newrelic/open-source-office/raw/master/examples/categories/images/Example_Code.png)](https://github.com/newrelic/open-source-office/blob/master/examples/categories/index.md#category-example-code)
+
 # Absinthe Schema Stitching Example
 
 ### Support Statement
-
-**This is an unsupported example. This project is provided AS-IS WITHOUT
-WARRANTY OR SUPPORT.**
 
 This repository contains three example Absinthe-GraphQL applications. The primary `Soccer Team` application and the secondary `Events` application are both independent GraphQL APIs. The Schema Stitch application demonstrates the process of stitching the Events application GraphQL schema into the main Soccer Team application GraphQL schema. Through this automated schema-stitching process, schemas from any downstream GraphQL application can be seamlessly integrated into upstream schemas with little manual interaction.
 

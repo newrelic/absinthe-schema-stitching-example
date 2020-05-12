@@ -32,7 +32,7 @@ defmodule SchemaStitch.QueryGeneratorTest do
 
     input_object :school_input_object do
       field(:grade_levels, list_of(:integer))
-      field(:zipcode, :string)
+      field(:zipcode, non_null(:string), default_value: "90210")
     end
 
     input_object :farmers_market_input_object do
@@ -274,6 +274,24 @@ defmodule SchemaStitch.QueryGeneratorTest do
                  %{day_of_the_week: "Saturday", neighborhood: "Multnomah Village"}
                ]
              }
+    end
+
+    test "with input object relying on defaults" do
+      {generated_query, _used_vars} =
+        """
+        {
+          schools(schoolInputObject: { gradeLevels: [ 1, 2 ] })
+        }
+        """
+        |> externalize()
+
+      assert generated_query ==
+               """
+               query {
+                 schools(schoolInputObject: { gradeLevels: [ 1, 2 ] })
+               }
+               """
+               |> String.trim()
     end
   end
 
