@@ -255,7 +255,8 @@ defmodule SchemaStitch.QueryGenerator do
   defp build_input_value(%Blueprint.Input.Value{
          normalized: %Blueprint.Input.Object{fields: sub_fields}
        }) do
-    "{ #{build_input_args(sub_fields)} }"
+    used_sub_fields = exclude_args_with_default_values(sub_fields)
+    "{ #{build_input_args(used_sub_fields)} }"
   end
 
   defp build_input_value(%Blueprint.Input.Value{
