@@ -78,21 +78,23 @@ defmodule SchemaStitch.QueryGenerator do
     |> Enum.reject(&is_nil/1)
   end
 
+  defp select_variable_arguments(%{input_value: input_value}) do
+    select_variable_arguments(input_value)
+  end
+
   defp select_variable_arguments(%{
-         input_value: %{
-           raw: %Blueprint.Input.RawValue{content: %Blueprint.Input.Variable{name: name}},
-           data: data
-         }
+         raw: %Blueprint.Input.RawValue{content: %Blueprint.Input.Variable{name: name}},
+         data: data
        }) do
     {name, data}
   end
 
-  defp select_variable_arguments(%{
-         input_value: %{
-           normalized: %Absinthe.Blueprint.Input.Object{fields: fields}
-         }
-       }) do
-    Enum.map(fields, &select_variable_arguments(&1))
+  defp select_variable_arguments(%{normalized: %Blueprint.Input.List{items: items}}) do
+    Enum.map(items, &select_variable_arguments/1)
+  end
+
+  defp select_variable_arguments(%{normalized: %Blueprint.Input.Object{fields: fields}}) do
+    Enum.map(fields, &select_variable_arguments/1)
   end
 
   defp select_variable_arguments(_argument) do
